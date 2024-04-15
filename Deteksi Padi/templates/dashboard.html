@@ -1,0 +1,98 @@
+{% extends "layout.html" %} {% block body %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link href="../static/css/dashboard.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="app">
+        {% include 'components/header.html' %}
+        <div class="app-body">
+            {% include 'components/sidebar.html' %}
+            <div class="app-body-main-content">
+                <section class="service-section">
+                    <h3 style="margin-top: 0;">Deteksi Padi dengan YOLOv8</h3>
+                    <p>Padi-Lah merupakan aplikasi yang dapat membantu petani mengidentifikasi penyakit pada tanaman
+                        padi dengan cepat dan akurat. Berbasis algoritma YOLOv8, aplikasi ini memungkinkan pengguna
+                        untuk mendapatkan diagnosis penyakit dengan mengunggah citra daun padi, menjadikannya alat yang
+                        praktis dan efektif untuk meningkatkan produktivitas padi.</p>
+
+                    <form id="" action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data"
+                        class="mb-3">
+                        <input name="file" type="file" id="inputGroupFile04" accept="image/*"
+                            class="btn btn-primary btn-choose-file">
+                        <button type="submit" class="btn btn-primary btn-choose-file"
+                            onclick="return checkFileUpload()">Upload</button>
+                    </form>
+                    <div id="fileUploadError" style="color: red; display: none; padding-bottom: 10px;">Masukkan file
+                        terlebih dahulu</div>
+
+                    {% if session['upload_done'] == True %}
+                    <form action="{{ url_for('detection_yolo') }}" method="POST" enctype="multipart/form-data">
+                        <button class="flat-button btn-detect">
+                            Deteksi Gambar
+                        </button>
+                    </form>
+                    {% endif %}
+
+                    {% if session['detection_done'] == True %}
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4>Before</h4>
+                            <img src="../static/img/img_normal.jpg" class="img-fluid" alt="..."
+                                style="max-width: 300px; max-height: 300px;">
+                        </div>
+                        <div class="col-md-6">
+                            <h4>After</h4>
+                            <img src="../static/img/img_now.jpg" class="img-fluid" alt="..."
+                                style="max-width: 300px; max-height: 300px;">
+                        </div>
+                    </div>
+
+                    <h4>Hasil Deteksi</h4>
+                    {% if counts %}
+                    <ul>
+                        {% for label, count in counts.items() %}
+                        <li>{{ label }}: {{ count }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                    {% endif %}
+                </section>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    function checkFileUpload() {
+        var fileInput = document.getElementById('inputGroupFile04');
+        var errorMessage = document.getElementById('fileUploadError');
+
+        // Periksa apakah input file tidak kosong
+        if (fileInput.files.length === 0) {
+            errorMessage.textContent = 'Masukkan file terlebih dahulu.';
+            errorMessage.style.display = 'block';
+            return false; // Menghentikan pengiriman formulir
+        }
+
+        // Periksa jenis file apakah gambar
+        var allowedTypes = ['image/jpeg', 'image/png', 'image/gif']; // Jenis file gambar yang diterima
+        if (allowedTypes.indexOf(fileInput.files[0].type) === -1) {
+            errorMessage.textContent = 'File yang dimasukkan harus berupa gambar.';
+            errorMessage.style.display = 'block';
+            return false; // Menghentikan pengiriman formulir
+        }
+
+        errorMessage.style.display = 'none';
+        return true; // Lanjutkan pengiriman formulir
+    }
+</script>
+
+</html>
+{% endblock %}

@@ -1,0 +1,27 @@
+[
+    {
+        "title": "Blight",
+        "img": "static/img/blight.jpeg",
+        "description": "Blight adalah penyakit pada tanaman padi yang disebabkan oleh bakteri Xanthomonas oryzae. Penyakit ini menunjukkan dua gejala utama, yakni penyakit kresek dan hawar. Gejala penyakit kresek biasanya menyerang tanaman padi pada tahap awal pertumbuhannya, di mana daun-daunnya berubah warna menjadi abu-abu kehijauan, melipat, dan melengkung. Pada infeksi yang parah, seluruh daun dapat rontok, menyebabkan tanaman layu dan akhirnya mati. Sementara itu, gejala hawar umumnya muncul pada tanaman padi yang telah mencapai tahap pertumbuhan dewasa."
+    },
+    {
+        "title": "Brown Spot",
+        "img": "static/img/brownspot.jpg",
+        "description": "Brown Spot adalah penyakit hawar daun yang ditandai oleh munculnya bercak coklat pada daun tanaman padi. Gejala ini dicirikan oleh adanya lesi berbentuk oval yang merata berwarna coklat pada daun padi. Di tengah lesi tersebut, seringkali terdapat titik berwarna abu-abu atau putih."
+    },
+    {
+        "title": "Tungro",
+        "img": "static/img/tungro.jpg",
+        "description": "Tungro merupakan penyakit pada tanaman padi yang disebabkan oleh Ricetungro bacilliform virus (RTBV) dan Rice tungro spherical virus (RTSV). Berikut adalah contoh gambar mengenai kondisi hispa pada daun padi. Gejala penyakit tungro adalah warna daun menguning sampai oranye dimulai dari ujung daun muda."
+    },
+    {
+        "title": "Blast",
+        "img": "static/img/blast.jpg",
+        "description": "Blast merupakan penyakit pada tanaman padi yang diakibatkan oleh jamur Pyricularia grisea. Penyakit ini menghasilkan bercak pada daun yang berbentuk seperti belah ketupat, dengan warna yang cenderung coklat. Gejala ini menjadi indikator bahwa tanaman padi telah terinfeksi blast."
+    },
+    {
+        "title": "Healthy",
+        "img": "static/img/healthy.jpg",
+        "description": "Daun padi yang sehat, atau biasa disebut Healthy, ditandai dengan beberapa ciri khas. Antara lain, warna hijau cerah yang menunjukkan kesehatan tanaman, tidak adanya bercak atau indikasi penyakit, struktur daun yang solid dan utuh, serta bebas dari kerusakan fisik atau tanda-tanda serangan hama."
+    }
+]

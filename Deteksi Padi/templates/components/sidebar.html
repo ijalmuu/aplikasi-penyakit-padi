@@ -1,0 +1,24 @@
+<div class="app-body-navigation">
+    <nav class="navigation">
+        <a href="{{ url_for('dashboard') }}">
+            <i class="ph-browsers"></i>
+            <span>Dashboard</span>
+        </a>
+        <a href="{{ url_for('informasi_padi') }}">
+            <i class="ph-browsers"></i>
+            <span>Informasi Tanaman Padi</span>
+        </a>
+        <a href="{{ url_for('webcam') }}">
+            <i class="ph-check-square"></i>
+            <span>Realtime Detection</span>
+        </a>
+        <a href="{{ url_for('riwayat_deteksi') }}">
+            <i class="ph-swap"></i>
+            <span>Riwayat Pendeteksian</span>
+        </a>
+        <a href="{{ url_for('logout') }}">
+            <i class="ph-file-text"></i>
+            <span>Logout</span>
+        </a>
+    </nav>
+</div>

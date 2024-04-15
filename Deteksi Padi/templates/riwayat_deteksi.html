@@ -1,0 +1,52 @@
+{% extends "layout.html" %} {% block body %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link href="../static/css/dashboard.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="app">
+        {% include 'components/header.html' %}
+        <div class="app-body">
+            {% include 'components/sidebar.html' %}
+            <div class="app-body-main-content">
+                <section class="service-section">
+                    <h3 style="margin-top: 0;">Riwayat Pendeteksian</h3>
+                    <div class="table-responsive">
+                        <table class="table table-dark table-hover table-bordered">
+                            <thead>
+                                <tr>
+                                    <th scope="col">No</th>
+                                    <th scope="col">Gambar Sebelum Deteksi</th>
+                                    <th scope="col">Gambar Setelah Deteksi</th>
+                                    <th scope="col">Hasil Deteksi</th>
+                                    <th scope="col">Waktu Deteksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for deteksi in riwayat_pendeteksian %}
+                                <tr>
+                                    <th scope="row">{{ loop.index }}</th>
+                                    <td><img src="{{ deteksi['gambar_sebelum'] }}" alt="Gambar Sebelum" style="max-width: 300px; max-height: 300px;"></td>
+                                    <td><img src="{{ deteksi['gambar_setelah'] }}" alt="Gambar Setelah" style="max-width: 300px; max-height: 300px;"></td>
+                                    <td>{{ deteksi['hasil_deteksi'] }}</td>
+                                    <td>{{ deteksi['waktu_deteksi'] }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+{% endblock %}
